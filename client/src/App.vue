@@ -1,13 +1,19 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <top-nav>
+    </top-nav>
     <router-view></router-view>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-default/index.css">
   </div>
 </template>
 
 <script>
+import TopNav from './components/TopNav'
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    TopNav
+  }
 }
 </script>
 
