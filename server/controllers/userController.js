@@ -24,12 +24,12 @@ createUser = (req,res) => {
 }
 
 createToken = (req,res) => {
-  User.findOne({username: req.body.username}, (err, user)=>{
+  User.findOne({username: req.user.username}, (err, user)=>{
     if(err) res.send(err)
-    let newJwt = jwt.sign({
-      _id: user._id, username: user.username
-    }, 'secret', {expiresIn: '1h'});
-    res.send(newJwt)
+    res.send(jwt.sign({
+      _id: user._id,
+      username: user.username
+    }, 'secret', {expiresIn: '1h'}))
   })
 }
 
