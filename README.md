@@ -9,7 +9,7 @@
 
 Methods | Routes | Description
 --- | --- | ---
-GET | /users/:id | get one user with his/her articles
+GET | /users/specific | get one user with his/her articles (provide his/her token in headers)
 POST | /users/signin | to sign in
 POST | /users/signup | to sign up
 GET | /articles | get all articles

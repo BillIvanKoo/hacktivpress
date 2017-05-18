@@ -9,7 +9,12 @@ getUsers = (req,res) => {
 }
 
 getOneUser = (req,res) => {
-  
+  User.findOne({_id: req.params._id})
+  .populate('articles')
+  .exec((err,user)=>{
+    if(err) res.send(err)
+    res.send(user)
+  })
 }
 
 createUser = (req,res) => {
