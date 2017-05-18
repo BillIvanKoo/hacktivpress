@@ -5,6 +5,7 @@ let jwtVerify = (req,res,next) => {
     if (err) res.send(err)
     if(decoded){
       req.user=decoded
+      console.log(decoded)
       next()
     }
   })

@@ -9,7 +9,8 @@ getUsers = (req,res) => {
 }
 
 getOneUser = (req,res) => {
-  User.findOne({_id: req.params._id})
+  let user = req.user
+  User.findOne({_id: user._id})
   .populate('articles')
   .exec((err,user)=>{
     if(err) res.send(err)
