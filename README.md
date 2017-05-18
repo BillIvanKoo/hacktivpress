@@ -14,6 +14,7 @@ POST | /users/signin | to sign in
 POST | /users/signup | to sign up
 GET | /articles | get all articles
 GET | /articles/:id | get one article
+GET | /articles/category | get articles based on category (provide category in body)
 POST | /articles | create a new article
 DELETE | /articles/:id | delete an article
 PUT | /articles/:id | update an article

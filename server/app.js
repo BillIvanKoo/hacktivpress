@@ -4,9 +4,17 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost/bill_hacktivpress');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+var passportHelper = require('./helpers/passport')
+
+passport.use(new LocalStrategy(passportHelper));
 
 var app = express();
 

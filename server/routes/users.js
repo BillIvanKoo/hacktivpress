@@ -1,9 +1,11 @@
 var express = require('express');
 var router = express.Router();
+var controller = require('../controllers/userController')
+const passport = require('passport');
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+router.get('/', controller.getUsers);
+router.post('/signin', passport.authenticate('local', {session: false}), controller.createToken);
+router.post('/signup', controller.createUser);
 
 module.exports = router;
